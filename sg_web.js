@@ -5,5 +5,6 @@ window.addEventListener('pageshow', function(event) {
         btn.classList.remove("btn");
         void btn.offsetWidth;
         btn.classList.add("btn");
+
     }
 });

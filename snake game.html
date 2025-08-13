@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sg_web.css">
     <title>Snake Game with Restart</title>
     <style>
         body {
@@ -30,7 +31,7 @@
 
     <canvas id="gameCanvas" width="420" height="420"></canvas>
     <button id="restartButton">Restart Game</button>
-
+    <a href="https://lal4l4.github.io/First_web/" class="btn">return to the main page</a>
     <script>
         // Game variables
         const canvas = document.getElementById("gameCanvas");
@@ -42,6 +43,7 @@
         let food;
         let score;
         let gameInterval;
+
 
         // Initialize the game
         function initializeGame() {
@@ -158,11 +160,11 @@
         });
 
         // Initialize the game when the page loads
-        initializeGame();
-    </script>
 
+    </script>
+    <script src="sg_web.js"></script>
 </body>
 
-<a href="https://lal4l4.github.io/First_web/" class="btn">return to the main page</a>
+
 
 </html>

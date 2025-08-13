@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            
             align-items: center;
             height: 100vh;
             margin: 0;
@@ -25,13 +25,23 @@
             font-size: 16px;
             cursor: pointer;
         }
+        main{
+                display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+        }
     </style>
 </head>
+<body>    <header>The snake game</header></body>
+
+<main><canvas id="gameCanvas" width="420" height="420"></canvas>
+    <button id="restartButton">Restart Game</button>
+    <a href="https://lal4l4.github.io/First_web/" class="btn">return to the main page</a></main>
 <body>
 
-    <canvas id="gameCanvas" width="420" height="420"></canvas>
-    <button id="restartButton">Restart Game</button>
-    <a href="https://lal4l4.github.io/First_web/" class="btn">return to the main page</a>
+
+    
     <script>
         // Game variables
         const canvas = document.getElementById("gameCanvas");
@@ -70,6 +80,7 @@
 
         // Handle keypress events to change snake direction
         document.addEventListener("keydown", (event) => {
+            event.preventDefault();
             if (event.key === "ArrowUp" && direction !== "DOWN") {
                 direction = "UP";
             } else if (event.key === "ArrowDown" && direction !== "UP") {
@@ -164,7 +175,6 @@
     </script>
     <script src="sg_web.js"></script>
 </body>
-
 
 
 </html>

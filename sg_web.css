@@ -17,3 +17,23 @@
     background-color: #e84350;
     transform: scale(1.05);
 }
+
+header{
+    background: #4ebdf8;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+    margin: 0;
+    display: block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    width: 100%;
+    height: 10%;
+       display: flex; /* 让文字垂直水平居中 */
+    align-items: center;
+    justify-content: center;
+    font-size: 5vh;
+}
+#restartButton:hover{
+    transform: scale(1.05);
+
+}

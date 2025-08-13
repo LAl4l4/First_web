@@ -68,3 +68,13 @@
     background-color: #e84350;
     transform: scale(1.05);
 }
+
+.atc:hover{
+   text-decoration: underline;
+}
+
+.version{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+}

@@ -49,13 +49,13 @@
             padding: 1rem;
             margin-top: 2rem;
         }
-    .btn {
+.btn {
     display: block;           /* 让 a 标签变成块级元素 */
     width: fit-content;       /* 宽度根据文字自适应 */
     margin: 20px auto;        /* 上下 20px，左右自动居中 */
     padding: 12px 24px;
     background-color: #0fbaf8;
-    color: rgb(165, 159, 238);
+    color: rgb(248, 248, 251);
     font-size: 18px;
     border-radius: 8px;
     text-decoration: none;

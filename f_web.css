@@ -23,6 +23,7 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+
         }
         nav a:hover {
             text-decoration: underline;
@@ -77,4 +78,51 @@
     position:absolute;
     bottom:10px;
     left:10px;
+}
+
+.dropdown {
+    position: relative; /* 让子菜单绝对定位基于这个容器 */
+    display:inline-block;
+}
+
+/* 子菜单默认隐藏 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* 紧贴父元素下面 */
+    left: 50%;  /* 左边界在父元素中心 */
+    transform: translateX(-50%); 
+    background: #333;
+    padding: 0;
+    padding-top: 15%;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 4px 4px;
+    min-width: 120px;
+    z-index: 1000;
+    text-align: center;
+}
+
+/* 子菜单每个条目 */
+.dropdown-menu li {
+    border-bottom: 1px solid #555;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 8px 12px;
+    color: #fff;
+}
+
+.dropdown-menu li a:hover {
+    background: #666;
+}
+
+/* 鼠标悬停显示菜单 */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }

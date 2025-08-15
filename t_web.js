@@ -200,7 +200,6 @@ class thebg{
 
 
 bgini();
-initialization();
 
     const startBtn = document.getElementById('startBtn');
     const resetBtn = document.getElementById('resetBtn');

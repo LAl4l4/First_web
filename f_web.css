@@ -1,128 +1,151 @@
-
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: #ff4b5c;
-            color: white;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-        nav {
-            background: #333;
-            color: white;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 0.5rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 900px;
-            margin: auto;
-            padding: 2rem;
-        }
-        article {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        article h2 {
-            color: #ff4b5c;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-.btn {
-    display: block;           /* 让 a 标签变成块级元素 */
-    width: fit-content;       /* 宽度根据文字自适应 */
-    margin: -20px auto;        /* 上下 -20px，左右自动居中 */
-    padding: 12px 24px;
-    background-color: #0fbaf8;
-    color: rgb(248, 248, 251);
-    font-size: 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-}
-
-.btn:hover {
-    background-color: #e84350;
-    transform: scale(1.05);
-}
-
-.atc:hover{
-   text-decoration: underline;
-}
-
-.version{
-    position:absolute;
-    bottom:10px;
-    left:10px;
-}
-
-.dropdown {
-    position: relative; /* 让子菜单绝对定位基于这个容器 */
-    display:inline-block;
-}
-
-/* 子菜单默认隐藏 */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%; /* 紧贴父元素下面 */
-    left: 50%;  /* 左边界在父元素中心 */
-    transform: translateX(-50%); 
-    background: #333;
-    padding: 0;
-    padding-top: 15%;
+/* 全局 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
-    list-style: none;
-    border-radius: 0 0 4px 4px;
-    min-width: 120px;
+    background-color: #fafafa;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* 顶部导航条 */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
     z-index: 1000;
-    text-align: center;
 }
 
-/* 子菜单每个条目 */
-.dropdown-menu li {
-    border-bottom: 1px solid #555;
+/* 链接 */
+nav a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    line-height: 48px;
+    transition: color 0.2s ease;
 }
 
-.dropdown-menu li:last-child {
-    border-bottom: none;
+nav a:hover {
+    color: #007aff; /* 苹果蓝 */
 }
 
+/* 关键：让子菜单紧贴父元素底部 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 48px;           /* 与 nav 高度一致 */
+}
+
+/* 触发链接本身垂直居中，避免撑高 */
+.dropdown > a {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 10px;        /* 和其他 nav a 一致 */
+}
+
+/* 下拉菜单：紧贴 .dropdown 的底部，不要 margin/padding-top */
+.dropdown-menu {
+    list-style: none;
+  display: none;
+  position: absolute;
+  top: 100%;              /* 紧贴父元素底部 */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;         /* 仅内部留白，别用 padding-top 造成缝隙 */
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 0 0 6px 6px;
+  min-width: 150px;
+  z-index: 1001;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* “桥接条”——覆盖 6~8px 的潜在空隙，防止 hover 断开 */
+.dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 8px;            /* 桥接高度 */
+  /* 默认就是可hover的，不需要 pointer-events:none; */
+}
+
+/* Hover 或键盘聚焦都显示菜单 */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+/* 子项 */
+.dropdown-menu li { border-bottom: 1px solid #f2f2f2; }
+.dropdown-menu li:last-child { border-bottom: none; }
 .dropdown-menu li a {
-    display: block;
-    padding: 8px 12px;
-    color: #fff;
+  display: block;
+  padding: 10px 12px;
+  color: #111;
+  text-decoration: none;
+}
+.dropdown-menu li a:hover { background: #f9f9f9; color: #007aff; }
+
+
+/* 主体 */
+main {
+    max-width: 800px;
+    margin: 80px auto 0 auto;
+    padding: 2rem;
 }
 
-.dropdown-menu li a:hover {
-    background: #666;
+/* 文章卡片 */
+article {
+    background: #fff;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: none; /* 去掉重阴影 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+article h2 {
+    margin-top: 0;
+    color: #111;
 }
 
-/* 鼠标悬停显示菜单 */
-.dropdown:hover .dropdown-menu {
-    display: block;
+
+
+/* 页脚 */
+footer {
+    background: #fff;
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #eaeaea;
+    font-size: 14px;
+}
+
+/* 版本号 */
+.version {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 12px;
+    color: #aaa;
 }

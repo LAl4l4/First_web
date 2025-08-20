@@ -18,8 +18,8 @@ nav {
     border-bottom: 1px solid #eaeaea;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 40px;
+    justify-content: space-between;
+    padding: 0 40px;
     z-index: 1000;
 }
 
@@ -29,13 +29,21 @@ nav a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    padding: 0 10px;
+    padding: 30px;
     line-height: 48px;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease;  
 }
+
+
 
 nav a:hover {
     color: #007aff; /* 苹果蓝 */
+}
+
+.nav-links{
+    position:absolute;
+    padding: 50px;
+    right: 7%;
 }
 
 /* 关键：让子菜单紧贴父元素底部 */
@@ -51,7 +59,7 @@ nav a:hover {
   align-items: center;
   height: 48px;
   line-height: 48px;
-  padding: 0 10px;        /* 和其他 nav a 一致 */
+  padding: 0 27px;        /* 和其他 nav a 一致 */
 }
 
 /* 下拉菜单：紧贴 .dropdown 的底部，不要 margin/padding-top */
@@ -128,6 +136,19 @@ article h2 {
     color: #111;
 }
 
+header{
+      margin-top: 48px;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      color: white;
+      text-align: center;
+      padding: 0 20px;
+
+}
 
 
 /* 页脚 */
@@ -143,9 +164,13 @@ footer {
 
 /* 版本号 */
 .version {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 10px;
     font-size: 12px;
     color: #aaa;
 }
+
+
+
+

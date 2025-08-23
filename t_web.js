@@ -22,7 +22,7 @@ const canvas = document.getElementById("canvas");
     let L = [[1,0],[1,0],[1,1]];
     let one = [[1,1,1,1]];
     let sqr = [[1,1],[1,1]];
-let bg = [];
+    let bg = [];
 
     function initialization(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
